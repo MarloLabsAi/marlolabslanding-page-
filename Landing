@@ -1,0 +1,265 @@
+import { useState } from "react";
+
+const bg = "#09090B";
+const surface = "#141416";
+const surface2 = "#1C1C1F";
+const border = "#27272A";
+const text1 = "#FAFAF9";
+const text2 = "#A1A1AA";
+const text3 = "#52525B";
+const accent = "#6D5CFF";
+const accentSoft = "#1A1730";
+const green = "#22C55E";
+const greenSoft = "#0D2818";
+
+const SERVICES = [
+  {
+    name: "AI Ops Audit",
+    price: "$2,500",
+    unit: "one-time",
+    desc: "We map your operations and show you where AI creates the most revenue impact.",
+    features: ["90-minute deep dive", "Top 5 automation opportunities", "ROI projections", "30-day implementation roadmap"],
+    cta: "Book audit",
+    featured: false,
+  },
+  {
+    name: "Build + Launch",
+    price: "$7,500",
+    unit: "one-time",
+    desc: "We deploy AI agents into your operations. Live and running in 3 weeks.",
+    features: ["Everything in Audit", "3-4 custom AI agents deployed", "Lead response system (24/7)", "Customer retention automation", "30 days managed operations"],
+    cta: "Get started",
+    featured: true,
+  },
+  {
+    name: "Managed Ops",
+    price: "$5K-15K",
+    unit: "/month",
+    desc: "We run your AI operations permanently. Your fractional AI team.",
+    features: ["Everything in Build", "Ongoing optimization", "Weekly performance reviews", "Monthly ROI reports", "Quarterly expansion planning"],
+    cta: "Let's talk",
+    featured: false,
+  },
+];
+
+const PRODUCTS = [
+  { name: "AI Agency Blueprint", price: "$47", desc: "Build your own AI operations agency from scratch." },
+  { name: "The Prompt Vault", price: "$19", desc: "50+ production-tested prompts for business automation." },
+  { name: "Billing System Template", price: "$29", desc: "Supabase + Stripe metered billing. Copy-paste deploy." },
+];
+
+const CAPABILITIES = [
+  { title: "Lead Response", desc: "Every inquiry answered in under 5 minutes. Day or night." },
+  { title: "Customer Retention", desc: "At-risk customers caught and re-engaged before they leave." },
+  { title: "Content Operations", desc: "Social, email, and review management on autopilot." },
+  { title: "Campaign Execution", desc: "Product launches, seasonal pushes, and promotions. Orchestrated." },
+  { title: "Revenue Intelligence", desc: "Daily briefings. Monthly ROI reports. Every dollar tracked." },
+  { title: "Platform Licensing", desc: "License the Marlo OS to run AI operations for your own clients." },
+];
+
+export default function MarloLabs() {
+  const [email, setEmail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = () => {
+    if (email.includes("@")) setSubmitted(true);
+  };
+
+  return (
+    <div style={{ fontFamily: "'Inter', system-ui, sans-serif", color: text1, background: bg, minHeight: "100vh" }}>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+      <div style={{ maxWidth: 720, margin: "0 auto", padding: "0 20px" }}>
+
+        {/* Nav */}
+        <nav style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "20px 0", borderBottom: `0.5px solid ${border}` }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <div style={{ width: 8, height: 8, borderRadius: "50%", background: accent }} />
+            <span style={{ fontSize: 15, fontWeight: 600, letterSpacing: -0.3 }}>Marlo Labs</span>
+          </div>
+          <div style={{ display: "flex", gap: 24, fontSize: 13, color: text2 }}>
+            <a href="#services" style={{ color: text2, textDecoration: "none" }}>Services</a>
+            <a href="#products" style={{ color: text2, textDecoration: "none" }}>Products</a>
+            <a href="#book" style={{ color: text1, textDecoration: "none", fontWeight: 500 }}>Book a call</a>
+          </div>
+        </nav>
+
+        {/* Hero */}
+        <section style={{ padding: "80px 0 60px", textAlign: "center" }}>
+          <div style={{ display: "inline-block", fontSize: 11, fontWeight: 500, letterSpacing: 1.5, textTransform: "uppercase", color: accent, background: accentSoft, padding: "6px 14px", borderRadius: 20, marginBottom: 24 }}>
+            AI Operations Lab
+          </div>
+
+          <h1 style={{ fontSize: 48, fontWeight: 700, lineHeight: 1.05, margin: "0 0 20px", letterSpacing: -2, color: text1 }}>
+            We install AI employees<br />into your business
+          </h1>
+
+          <p style={{ fontSize: 17, lineHeight: 1.6, color: text2, maxWidth: 500, margin: "0 auto 12px" }}>
+            Your leads answered at 2 AM. Your customers retained automatically. Your marketing running while you sleep.
+          </p>
+          <p style={{ fontSize: 14, color: text3, maxWidth: 440, margin: "0 auto 36px" }}>
+            Marlo Labs builds and operates AI agent systems for businesses that want to scale without scaling headcount.
+          </p>
+
+          <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
+            <a href="#book" style={{ padding: "12px 28px", fontSize: 14, fontWeight: 600, border: "none", borderRadius: 8, background: accent, color: "white", textDecoration: "none", cursor: "pointer" }}>
+              Book a discovery call
+            </a>
+            <a href="#products" style={{ padding: "12px 28px", fontSize: 14, fontWeight: 500, border: `0.5px solid ${border}`, borderRadius: 8, background: "transparent", color: text1, textDecoration: "none", cursor: "pointer" }}>
+              Browse templates
+            </a>
+          </div>
+        </section>
+
+        {/* Social Proof Bar */}
+        <div style={{ display: "flex", justifyContent: "center", gap: 32, padding: "20px 0 40px", flexWrap: "wrap" }}>
+          {[
+            { value: "3.2 min", label: "avg lead response" },
+            { value: "24/7", label: "agent uptime" },
+            { value: "97%", label: "delivery margin" },
+          ].map((s, i) => (
+            <div key={i} style={{ textAlign: "center" }}>
+              <div style={{ fontSize: 22, fontWeight: 700, color: text1 }}>{s.value}</div>
+              <div style={{ fontSize: 11, color: text3, textTransform: "uppercase", letterSpacing: 1 }}>{s.label}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Capabilities */}
+        <section style={{ padding: "40px 0 60px" }}>
+          <h2 style={{ fontSize: 13, fontWeight: 500, letterSpacing: 1.5, textTransform: "uppercase", color: text3, margin: "0 0 20px" }}>Capabilities</h2>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+            {CAPABILITIES.map((c, i) => (
+              <div key={i} style={{ background: surface, border: `0.5px solid ${border}`, borderRadius: 10, padding: "16px 18px" }}>
+                <div style={{ fontSize: 14, fontWeight: 500, marginBottom: 4, color: text1 }}>{c.title}</div>
+                <div style={{ fontSize: 13, lineHeight: 1.5, color: text2 }}>{c.desc}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Marlo Max Section */}
+        <section style={{ background: surface, border: `0.5px solid ${border}`, borderRadius: 16, padding: "24px", marginBottom: 60 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
+            <div style={{ width: 32, height: 32, borderRadius: "50%", background: accent, display: "flex", alignItems: "center", justifyContent: "center", color: "white", fontWeight: 700, fontSize: 14 }}>M</div>
+            <div>
+              <div style={{ fontSize: 14, fontWeight: 600, color: text1 }}>Meet Marlo Max</div>
+              <div style={{ fontSize: 11, color: text3 }}>Our AI agent. Building its own company. In public.</div>
+            </div>
+          </div>
+          <div style={{ background: bg, borderRadius: 10, border: `0.5px solid ${border}`, padding: "14px 16px", fontSize: 13, lineHeight: 1.7, color: text2 }}>
+            <p style={{ margin: "0 0 8px", color: text1, fontWeight: 500 }}>Latest from Marlo Max:</p>
+            <p style={{ margin: "0 0 6px" }}>Onboarded 2 clients this week. 847 tasks completed across all accounts. Lead response time holding at 3.2 minutes. One client's retention emails prevented 7 cancellations worth $623/month.</p>
+            <p style={{ margin: 0, color: text3 }}>Follow the build on X @marlolabs</p>
+          </div>
+        </section>
+
+        {/* Services */}
+        <section id="services" style={{ padding: "0 0 60px" }}>
+          <h2 style={{ fontSize: 13, fontWeight: 500, letterSpacing: 1.5, textTransform: "uppercase", color: text3, margin: "0 0 8px" }}>Services</h2>
+          <p style={{ fontSize: 22, fontWeight: 600, color: text1, margin: "0 0 24px", letterSpacing: -0.5 }}>Three ways to work with us</p>
+
+          {SERVICES.map((s, i) => (
+            <div key={i} style={{ border: s.featured ? `1.5px solid ${accent}` : `0.5px solid ${border}`, borderRadius: 12, padding: "22px", marginBottom: 12, background: surface, position: "relative" }}>
+              {s.featured && (
+                <div style={{ position: "absolute", top: -10, left: 22, background: accent, color: "white", fontSize: 11, fontWeight: 500, padding: "3px 12px", borderRadius: 10 }}>Most popular</div>
+              )}
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 6 }}>
+                <span style={{ fontSize: 17, fontWeight: 600, color: text1 }}>{s.name}</span>
+                <div>
+                  <span style={{ fontSize: 24, fontWeight: 700, color: text1 }}>{s.price}</span>
+                  <span style={{ fontSize: 12, color: text3, marginLeft: 4 }}>{s.unit}</span>
+                </div>
+              </div>
+              <p style={{ fontSize: 13, color: text2, margin: "0 0 14px", lineHeight: 1.5 }}>{s.desc}</p>
+              <div style={{ marginBottom: 16 }}>
+                {s.features.map((f, j) => (
+                  <div key={j} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 13, color: text2, padding: "3px 0" }}>
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7l3 3 5-6" stroke={green} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                    {f}
+                  </div>
+                ))}
+              </div>
+              <button style={{ width: "100%", padding: "10px", fontSize: 13, fontWeight: 500, border: s.featured ? "none" : `0.5px solid ${border}`, borderRadius: 8, background: s.featured ? accent : "transparent", color: s.featured ? "white" : text1, cursor: "pointer", fontFamily: "inherit" }}>{s.cta}</button>
+            </div>
+          ))}
+        </section>
+
+        {/* Digital Products */}
+        <section id="products" style={{ padding: "0 0 60px" }}>
+          <h2 style={{ fontSize: 13, fontWeight: 500, letterSpacing: 1.5, textTransform: "uppercase", color: text3, margin: "0 0 8px" }}>Build it yourself</h2>
+          <p style={{ fontSize: 22, fontWeight: 600, color: text1, margin: "0 0 24px", letterSpacing: -0.5 }}>Templates, prompts, and blueprints</p>
+
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10 }}>
+            {PRODUCTS.map((p, i) => (
+              <div key={i} style={{ background: surface, border: `0.5px solid ${border}`, borderRadius: 10, padding: "18px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+                <div>
+                  <div style={{ fontSize: 14, fontWeight: 500, color: text1, marginBottom: 4 }}>{p.name}</div>
+                  <div style={{ fontSize: 12, lineHeight: 1.5, color: text2, marginBottom: 12 }}>{p.desc}</div>
+                </div>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                  <span style={{ fontSize: 18, fontWeight: 700, color: text1 }}>{p.price}</span>
+                  <button style={{ padding: "6px 14px", fontSize: 12, fontWeight: 500, border: `0.5px solid ${border}`, borderRadius: 6, background: "transparent", color: text1, cursor: "pointer", fontFamily: "inherit" }}>Get it</button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* For Consultants */}
+        <section style={{ background: surface, border: `0.5px solid ${border}`, borderRadius: 16, padding: "28px", marginBottom: 60 }}>
+          <div style={{ display: "inline-block", fontSize: 11, fontWeight: 500, letterSpacing: 1.5, textTransform: "uppercase", color: green, background: greenSoft, padding: "4px 12px", borderRadius: 10, marginBottom: 14 }}>
+            Coming Q3 2026
+          </div>
+          <h3 style={{ fontSize: 20, fontWeight: 600, color: text1, margin: "0 0 8px", letterSpacing: -0.3 }}>
+            Marlo OS for Consultants
+          </h3>
+          <p style={{ fontSize: 14, lineHeight: 1.6, color: text2, margin: "0 0 16px" }}>
+            License the entire Marlo Labs system for your own clients. Billing infrastructure, agent templates, vertical playbooks, and a white-label dashboard. You run the relationships. Marlo runs the AI.
+          </p>
+          {!submitted ? (
+            <div style={{ display: "flex", gap: 8, maxWidth: 400 }}>
+              <input
+                type="email"
+                placeholder="you@agency.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
+                style={{ flex: 1, padding: "10px 14px", fontSize: 13, border: `0.5px solid ${border}`, borderRadius: 8, background: bg, color: text1, fontFamily: "inherit", outline: "none" }}
+              />
+              <button onClick={handleSubmit} style={{ padding: "10px 20px", fontSize: 13, fontWeight: 600, border: "none", borderRadius: 8, background: green, color: "#0D2818", cursor: "pointer", fontFamily: "inherit", whiteSpace: "nowrap" }}>
+                Join waitlist
+              </button>
+            </div>
+          ) : (
+            <div style={{ background: greenSoft, borderRadius: 8, padding: "10px 16px", fontSize: 13, color: green, maxWidth: 400 }}>
+              You're on the list. We'll reach out when it's ready.
+            </div>
+          )}
+        </section>
+
+        {/* Book a Call */}
+        <section id="book" style={{ padding: "40px 0 60px", textAlign: "center" }}>
+          <h2 style={{ fontSize: 28, fontWeight: 700, color: text1, margin: "0 0 8px", letterSpacing: -1 }}>
+            Ready to install AI into your operations?
+          </h2>
+          <p style={{ fontSize: 14, color: text2, margin: "0 0 24px" }}>
+            30-minute discovery call. No pitch. Just a look at where AI creates the most value for your business.
+          </p>
+          <a href="https://cal.com" style={{ display: "inline-block", padding: "14px 36px", fontSize: 15, fontWeight: 600, border: "none", borderRadius: 8, background: accent, color: "white", textDecoration: "none", cursor: "pointer" }}>
+            Book your call
+          </a>
+        </section>
+
+        {/* Footer */}
+        <footer style={{ padding: "20px 0", borderTop: `0.5px solid ${border}`, display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+            <div style={{ width: 6, height: 6, borderRadius: "50%", background: accent }} />
+            <span style={{ fontSize: 13, color: text2 }}>Marlo Labs</span>
+          </div>
+          <span style={{ fontSize: 12, color: text3 }}>marlolabs.ai</span>
+        </footer>
+      </div>
+    </div>
+  );
+}
